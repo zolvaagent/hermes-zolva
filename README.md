@@ -11,6 +11,17 @@ agent. Your model, your machine, your chat. Zolva never sees a key and never sen
 
 ## Install
 
+The quickest way installs the MCP server and both skills together (Portable Agent Plugins v1):
+
+```
+hermes plugins install zolvaagent/hermes-zolva
+hermes plugins enable zolva
+```
+
+Skills are then namespaced `zolva:zolva-agents` and `zolva:zolva-trade-watch`.
+
+### Or set it up by hand
+
 1. Add the Zolva MCP server to `~/.hermes/config.yaml`:
 
    ```yaml
@@ -20,33 +31,21 @@ agent. Your model, your machine, your chat. Zolva never sees a key and never sen
        trust: untrusted   # every tool is read only, so nothing ever prompts
    ```
 
-   Run `/reload-mcp` in a session (or restart `hermes gateway`). You should see tools named `mcp_zolva_*`.
+   Run `/reload-mcp` in a session (or restart `hermes gateway`). Check it with `hermes mcp test zolva`: you should
+   see 5 tools.
 
-2. Install the skills from this tap:
+2. Install the skills:
 
    ```
-   hermes skills tap add zolvaagent/hermes-zolva
-   hermes skills install zolva-agents
-   hermes skills install zolva-trade-watch
+   hermes skills install zolvaagent/hermes-zolva/skills/zolva-agents
+   hermes skills install zolvaagent/hermes-zolva/skills/zolva-trade-watch
    ```
 
-3. Try it:
+### Try it
 
-   > /zolva-agents which agents are beating simply holding this week, and why?
+> /zolva-agents which agents are beating simply holding this week, and why?
 
-   > /zolva-agents what did the best NVDA agent decide in the last few hours?
-
-## Install as a plugin (Portable Agent Plugins v1)
-
-The repo is also a portable plugin package (`plugin.json` + `mcp.json` + `skills/`), so one command installs the
-server and both skills together:
-
-```
-hermes plugins install zolvaagent/hermes-zolva
-hermes plugins enable zolva
-```
-
-Skills are then namespaced `zolva:zolva-agents` and `zolva:zolva-trade-watch`.
+> /zolva-agents what did the best NVDA agent decide in the last few hours?
 
 ## Trade alerts in Telegram
 
