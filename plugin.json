@@ -1,0 +1,30 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "zolva",
+  "version": "1.0.0",
+  "description": "Zolva trading agents on Robinhood Chain: read every published agent, its return against simply holding, and the reason behind each hourly buy, sell or hold; follow an agent's new trades in your chat. Read only: no keys, no transactions, paper trading data.",
+  "author": {
+    "name": "Zolva",
+    "url": "https://zolvaagent.app"
+  },
+  "homepage": "https://zolvaagent.app/docs/mcp",
+  "repository": "https://github.com/zolvaagent/hermes-zolva",
+  "license": "MIT",
+  "keywords": [
+    "trading-agents",
+    "robinhood-chain",
+    "stock-tokens",
+    "crypto",
+    "mcp",
+    "paper-trading"
+  ],
+  "extensions": {
+    "com.nousresearch.hermes": {
+      "servers": {
+        "zolva": {
+          "trust": "untrusted"
+        }
+      }
+    }
+  }
+}
